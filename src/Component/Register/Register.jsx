@@ -9,7 +9,7 @@ function Register() {
     let path = "/login";
     navigate(path);
   }
-
+  let[Error,setError]=useState();
   let [user, setUser] = useState({
     userName: "",
     password: "",
@@ -25,7 +25,9 @@ function Register() {
       console.log("ttt");
       goToLogin();
     }
-    
+   else{
+    setError(data.message);
+   }
   };
 
 
@@ -36,6 +38,7 @@ function Register() {
   };
   return (
     <div className="container text-center my-5">
+      {Error? <div className='alert alert-danger'>{Error}</div>: ' '}
       <div className="user my-3">
         <i className="fas fa-user-secret user-icon" />
         <h4 className="login">Register</h4>

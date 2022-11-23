@@ -10,11 +10,12 @@ function Login({setUserData}) {
     let path='/home';
     navegate(path);
   }
-
+let [cmassge,seyCmassge]=useState("");
   let SubmitFormData= async (e)=>{
 
     e.preventDefault();
     let{data}=await axios.post("http://localhost:3003/api/v1/auth/signin",user);
+    seyCmassge(data.messge);
    if (data.message=='login')
    {localStorage.setItem('token',data.loginToken);
    setUserData();
@@ -50,7 +51,7 @@ function Login({setUserData}) {
   return (
  <div className="container text-center my-5">
   {Error? <div className='alert alert-danger'>{Error}</div>: ' '}
-
+  {cmassge? <div className='alert alert-danger'>{cmassge}</div>: ' '}
   <div className="user my-3">
     <i className="fas fa-user-secret user-icon" />
     <h4 className="login">Login</h4>
