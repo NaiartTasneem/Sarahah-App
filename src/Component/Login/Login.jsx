@@ -21,8 +21,12 @@ function Login({setUserData}) {
    goToHome();
 
    }
+   else{
+    setError(data.message);
+   }
   }
   
+  let[Error,setError]=useState();
   let [user,setuser]=useState({
     email:"",
     password:"",
@@ -45,6 +49,8 @@ function Login({setUserData}) {
 
   return (
  <div className="container text-center my-5">
+  {Error? <div className='alert alert-danger'>{Error}</div>: ' '}
+
   <div className="user my-3">
     <i className="fas fa-user-secret user-icon" />
     <h4 className="login">Login</h4>
