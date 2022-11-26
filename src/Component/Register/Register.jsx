@@ -19,7 +19,7 @@ function Register() {
 
   let SubmitFormData = async (e) => {
     e.preventDefault();
-    let { data } = await axios.post("http://localhost:3003/api/v1/auth/signup",user);
+    let { data } = await axios.post("http://localhost:3000/api/v1/auth/signup",user);
     console.log(data);
     if (data.message == "done") {
       console.log("ttt");
@@ -29,8 +29,6 @@ function Register() {
     setError(data.message);
    }
   };
-
-
   let getFormData = (e) => {
     let myUser = { ...user };
     myUser[e.target.name] = e.target.value;
