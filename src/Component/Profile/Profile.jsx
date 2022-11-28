@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 function Profile() {
     const [searchParams, setSearchParams] = useSearchParams();
-  let user_id = searchParams.get("user_id");
+  let _id = searchParams.get("_id");
   
 
   let [text, setText] = useState('');
@@ -14,8 +14,8 @@ function Profile() {
 
   let SubmitFormData = async (e) => {
     e.preventDefault();
-    let { data } = await axios.post(`http://localhost:3000/api/v1/message/${user_id}`,text);
-    console.log(data);
+    let { data } = await axios.post(`http://localhost:3000/api/v1/message/${_id}`,text);
+    console.log(data.message);
     if (data.message == "Done") {
         setSendDone('Message sent successfully !.');
       }else{

@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 import Users from './Component/Users/Users';
 import Index from './Component/Index/Index.jsx';
 import Profile from './Component/Profile/Profile';
+import ProtectedRout from './Component/protectedrout/ProtectedRout'
+import UserProfile from './Component/userprofile/UserProfile';
 function App() {
   
   let[loginData,setloginData]=useState(null);
@@ -31,9 +33,14 @@ function App() {
 
   return (
     <>
-    <Navbar/>
+    <Navbar  loginData={loginData} />
     <div className="container">
     <Routes>
+
+    <Route  element={<ProtectedRout loginData={loginData}/>}>
+    <Route path='userprofile' element={<UserProfile loginData={loginData}/>}></Route>
+    </Route>
+
       <Route path='/' element={<Index/>}></Route>
       <Route path='profile' element={<Profile/>}></Route>
       <Route path='users' element={<Users/>}></Route>

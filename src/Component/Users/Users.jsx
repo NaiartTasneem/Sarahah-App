@@ -13,17 +13,19 @@ function Users() {
     }
   
     let navigate=useNavigate();
-    function goToProfile(user_id){
+    function goToProfile(_id){
    navigate({
     pathname:'/profile',
-    search:`?user_id=${user_id}`//this mean this is an parameter in the url
+    search:`?_id=${_id}`//this mean this is an parameter in the url
    })
     } 
     useEffect( ()=>{ 
         getUserProfile();
      },[])
     return (
-  <div  className='container d-flex mt-5 align-items-center text-center justify-content-center'>
+  
+  <>
+<div  className='container d-flex mt-5 align-items-center text-center justify-content-center'>
     <div className='row '>
       
        {allusers.map(
@@ -39,6 +41,7 @@ function Users() {
     </div>
  
   
+  </>
     )
   }
   
