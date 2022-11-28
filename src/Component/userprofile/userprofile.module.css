@@ -1,9 +1,10 @@
-.delbtn{background-color: aqua;
+.delbtn{background-color: rgb(255, 255, 255);
 margin-left: auto;
 margin-top: 15px;}
 
 .mes{
     font-size: larger;
+    color: rgb(16,187,179);
     font-weight: 600;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

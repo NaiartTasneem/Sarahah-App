@@ -7,7 +7,7 @@ function Login({setUserData}) {
 
   let navegate=useNavigate();
   function  goToHome(){
-    let path='/home';
+    let path='/userprofile';
     navegate(path);
   }
 let [cmassge,seyCmassge]=useState("");

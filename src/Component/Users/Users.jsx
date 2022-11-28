@@ -30,7 +30,7 @@ function Users() {
       
        {allusers.map(
         (ele,index)=>
-        <div className='col-md-3 mb-3 ms-5 bg-white flex-1 ' onClick={()=>goToProfile(ele._id)} key={index}>
+        <div className={`ms-5 me-4 mb-3 bg-white ${style.mydiv }`} onClick={()=>goToProfile(ele._id)} key={index}>
             <i className={`pt-4 pb-3 fa-solid fa-person ${style.usericon }`}></i>
             <h5 className=' mb-3 text-capitalize'>{ele.userName}</h5>
           </div>

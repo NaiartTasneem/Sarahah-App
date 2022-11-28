@@ -1,4 +1,4 @@
-import { Route, Routes} from 'react-router-dom';
+import { Route, Routes ,Navigate} from 'react-router-dom';
 import './App.css';
 import Home from './Component/Home/Home';
 import Login from './Component/Login/Login';
@@ -21,7 +21,11 @@ function App() {
     setloginData(decoded);
     console.log(loginData);
   }
-
+  function logout(){
+    localStorage.removeItem('token');
+    setloginData(null);
+    Navigate('/register');
+  }
   useEffect(()=>{  
   if(localStorage.getItem('token')){
     setUserData();
@@ -33,7 +37,7 @@ function App() {
 
   return (
     <>
-    <Navbar  loginData={loginData} />
+    <Navbar  loginData={loginData} logout={logout} />
     <div className="container">
     <Routes>
 

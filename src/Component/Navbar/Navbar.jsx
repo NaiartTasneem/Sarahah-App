@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-function Navbar({loginData}) {
+function Navbar({loginData,logout}) {
   return (
 
 <nav className="navbar navbar-expand-lg bg-custom navbar-dark bg-dark">
@@ -13,20 +13,10 @@ function Navbar({loginData}) {
     <div className="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
       <ul className="navbar-nav ms-auto">
       <li className="nav-item">
-              <Link className="nav-link" to="users">
-                Users
-              </Link>
-            </li>
-       <li className="nav-item">
-              <Link className="nav-link" to="login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="register">
-                Register
-              </Link>
-            </li>
+      <Link className="nav-link" to="users">
+        Users
+      </Link>
+    </li>
             {loginData?
             <>
            <li className="nav-item">
@@ -34,8 +24,25 @@ function Navbar({loginData}) {
             User Profile
            </Link>
          </li>
-         </>:''
-          
+        
+         <li className="nav-item" >
+           <Link className="nav-link"  onClick={logout} to="register" >
+            Logout
+           </Link>
+         </li>
+         </>:
+         <>
+<li className="nav-item">
+      <Link className="nav-link" to="login">
+        Login
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link" to="register">
+        Register
+      </Link>
+    </li>
+    </> 
           }
            
       </ul>

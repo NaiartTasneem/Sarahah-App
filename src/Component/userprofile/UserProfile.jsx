@@ -3,6 +3,14 @@ import React, { useEffect, useState } from 'react';
 import style from './userprofile.module.css';
 function UserProfile() {
 
+  async function delmessages(msgId){
+    console.log(msgId);
+    let token=localStorage.getItem('token');
+    let tariq='tariq__';
+   let {data}=await axios.delete(`http://localhost:3000/api/v1/message/${msgId}`, { headers: {"Authorization" : `${tariq}${token}`} });
+   console.log(data);
+   getmessages();
+  }
   
   async function getmessages(){
     let token=localStorage.getItem('token');
@@ -22,8 +30,8 @@ useEffect(()=>{getmessages()}
     <p className={`${style.mes }`}>Your messages </p>
     {messages.map((mes,index)=>
       
-    <div className='border d-flex pb-3'>{mes.text}
-    <p className={`${style.delbtn } `}><a href='#' className='btn btn-danger color-light '>Delete</a></p>
+    <div className='border mb-2  bg-white d-flex pt-3 ps-1 pb-3'>{mes.text}
+    <p className={`pe-3 ${style.delbtn } `}><a onClick={()=>delmessages(mes._id)} className='btn btn-danger color-light '>Delete</a></p>
     </div>
 
 
