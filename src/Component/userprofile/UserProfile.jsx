@@ -1,7 +1,7 @@
 import React from 'react'
 
-function UserProfile({loginData}) {
-    console.log({loginData});
+function UserProfile() {
+    
   return (
     
     <h2 className="text-center">Welcome </h2>

@@ -5,18 +5,20 @@ import { useState, useEffect } from "react";
 
 function Profile() {
     const [searchParams, setSearchParams] = useSearchParams();
-  let _id = searchParams.get("_id");
+  let user_id = searchParams.get("user_id");
   
 
-  let [text, setText] = useState('');
+  let [text, setText] = useState({
+    text:' '
+  });
   let[sendDone,setSendDone]=useState('')
   let[Notsend,setNotsend]=useState('')
 
   let SubmitFormData = async (e) => {
     e.preventDefault();
-    let { data } = await axios.post(`http://localhost:3000/api/v1/message/${_id}`,text);
-    console.log(data.message);
-    if (data.message == "Done") {
+    let { data } = await axios.post(`http://localhost:3000/api/v1/message/${user_id}`,{text});
+    console.log(data);
+    if (data.message == "Dnoe ") {
         setSendDone('Message sent successfully !.');
       }else{
         setNotsend("Message Does not sent !.")

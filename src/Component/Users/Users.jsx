@@ -13,10 +13,10 @@ function Users() {
     }
   
     let navigate=useNavigate();
-    function goToProfile(_id){
+    function goToProfile(user_id){
    navigate({
     pathname:'/profile',
-    search:`?_id=${_id}`//this mean this is an parameter in the url
+    search:`?user_id=${user_id}`//this mean this is an parameter in the url
    })
     } 
     useEffect( ()=>{ 
