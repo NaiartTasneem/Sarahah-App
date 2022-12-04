@@ -26,6 +26,9 @@ function Users() {
   
   <>
 <div  className='container d-flex mt-5 align-items-center text-center justify-content-center'>
+  <div>
+  <input className="form-control" placeholder="search here ..." type="text"  />
+  </div>
     <div className='row '>
       
        {allusers.map(
