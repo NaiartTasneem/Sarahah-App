@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import ForgetPassword from '../Forget/ForgetPassword';
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 function Login({setUserData}) {
 
@@ -61,7 +63,7 @@ let [cmassge,seyCmassge]=useState("");
       <input className="form-control" placeholder="Enter your email" type="text" name="email" onChange={DataForm} />
       <input className="form-control my-4 " placeholder="Enter your Password" type="text" name="password" onChange={DataForm}/>
       <button  type="submit" className="btn btn-default-outline my-4 w-100 rounded">Login</button>
-      <p><a className="text-muted forgot btn" href>I Forgot My Password</a></p>
+      <p><Link className="text-muted forgot btn" to='/forgetpassword'>I Forgot My Password</Link></p>
       <a className="btn btn-default-outline" href="register.html">Register</a>
     </form>
   </div>

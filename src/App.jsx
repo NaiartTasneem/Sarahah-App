@@ -11,6 +11,7 @@ import Index from './Component/Index/Index.jsx';
 import Profile from './Component/Profile/Profile';
 import ProtectedRout from './Component/protectedrout/ProtectedRout'
 import UserProfile from './Component/userprofile/UserProfile';
+import ForgetPassword from './Component/Forget/ForgetPassword';
 function App() {
   
   let[loginData,setloginData]=useState(null);
@@ -51,6 +52,7 @@ function App() {
       <Route path='home' element={<Home/>} ></Route>
       <Route path='login' element={<Login  setUserData={setUserData}  />} ></Route>
       <Route path='register' element={<Register/>} ></Route>
+      <Route path='forgetpassword'  element={<ForgetPassword/>}></Route>
     </Routes>
     </div>
     </>
