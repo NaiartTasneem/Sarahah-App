@@ -75,11 +75,7 @@ function Register() {
           <button type="submit" className="btn btn-default-outline my-4 w-100 rounded">
             Register
           </button>
-          <p>
-            <a className="text-muted forgot btn" >
-              I Forgot My Password
-            </a>
-          </p>
+          
           <Link className="btn btn-default-outline" to="/login">
             Login
           </Link>
