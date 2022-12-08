@@ -7,9 +7,7 @@ function UserProfile({loginData}) {
 
   
   async function delmessages(msgId){
-    console.log(msgId);
     let token=localStorage.getItem('token');
-
     let tariq='tariq__';
    let {data}=await axios.delete(`http://localhost:3000/api/v1/message/${msgId}`, { headers: {"Authorization" : `${tariq}${token}`} });
    console.log(data);
@@ -50,6 +48,7 @@ const submitdelete = (id) => {
     <>
     
     <h2 className="text-center pt-5 pb-4 fs-3 ">WELCOME </h2>
+   
 <div className='mb-5'>
    {messages.length?<>{messages.map((mes,index)=>
     <div>

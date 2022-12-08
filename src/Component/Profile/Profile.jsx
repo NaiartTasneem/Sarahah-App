@@ -1,13 +1,15 @@
 import React from 'react'
 import  axios  from 'axios';
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams ,useLocation} from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Profile() {
-    const [searchParams, setSearchParams] = useSearchParams();
-  let user_id = searchParams.get("user_id");
-  
-
+  //   const [searchParams, setSearchParams] = useSearchParams();
+  // let user_id = searchParams.get("user_id");
+  const {state}=useLocation();
+  const {user_id,userName}=state;
+console.log(userName);
+console.log(user_id);
   let [text, setText] = useState({
     text:' '
   });
@@ -20,6 +22,7 @@ function Profile() {
     console.log(data);
     if (data.message == "Dnoe ") {
         setSendDone('Message sent successfully !.');
+      
       }else{
         setNotsend("Message Does not sent !.")
       }
@@ -30,6 +33,9 @@ function Profile() {
     mytext = e.target.value;
     console.log(mytext);
     setText(mytext);
+    if(sendDone){
+      e.target.value=" ";
+    }
   };
   return (
     <div>
@@ -38,11 +44,12 @@ function Profile() {
    
     {sendDone? <div className='alert alert-success mb-5'>{sendDone}</div>:''}
     {Notsend?<div className='alert alert-danger mb-5'>{Notsend}</div>:''}
-      <div className="card py-5 mb-5">
+    <div className='pb-1'></div>
+      <div className="card py-5 mb-5 mt-5" >
         <a  data-toggle="modal" data-target="#profile">
           <img src="img/avatar.png" className="avatar " />
         </a>
-        
+        <h3 class="py-2">{userName}</h3>
         <div className="container w-50 m-auto">
           <form onSubmit={SubmitFormData}  method="post">
             <textarea   onChange={getFormData} type='text' className=" mt-5 form-control" cols={10} rows={9} placeholder="type what you want .....  :)" defaultValue={""} />

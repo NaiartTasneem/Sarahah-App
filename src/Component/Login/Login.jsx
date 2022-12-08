@@ -64,7 +64,7 @@ let [cmassge,seyCmassge]=useState("");
       <input className="form-control my-4 " placeholder="Enter your Password" type="text" name="password" onChange={DataForm}/>
       <button  type="submit" className="btn btn-default-outline my-4 w-100 rounded">Login</button>
       <p><Link className="text-muted forgot btn" to='/forgetpassword'>I Forgot My Password</Link></p>
-      <a className="btn btn-default-outline" href="register.html">Register</a>
+      <Link className="btn btn-default-outline" to="/register">Register</Link>
     </form>
   </div>
 </div>

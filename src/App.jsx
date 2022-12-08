@@ -25,7 +25,7 @@ function App() {
   function logout(){
     localStorage.removeItem('token');
     setloginData(null);
-    Navigate('/register');
+    Navigate('login');
   }
   useEffect(()=>{  
   if(localStorage.getItem('token')){
